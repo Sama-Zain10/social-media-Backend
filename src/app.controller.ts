@@ -22,6 +22,7 @@ const bootstrap = async (app: Express): Promise<void> => {
   app.use(cors(corsOptions));
   app.use(helmet());
   app.use(limiter);
+  // DB connection
   await connectDB();
   app.get("/", (req: Request, res: Response): Response => {
     return res.send("Welcome from socail-media");
@@ -34,6 +35,7 @@ const bootstrap = async (app: Express): Promise<void> => {
   app.all("/*dummy", (req: Request, res: Response): Response => {
      throw new NotFoundException("Not Found Handler");
   });
+  
 }
 
-export default bootstrap;
+export default bootstrap; 

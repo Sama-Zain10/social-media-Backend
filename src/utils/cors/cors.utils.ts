@@ -4,7 +4,7 @@ const Whit_list: string[] = WHITE_LIST;
 
 export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    if (!origin)  callback(null, true);
+    if (!origin) return  callback(null, true);
 
     if (Whit_list.includes(origin!)) return callback(null, true);
 

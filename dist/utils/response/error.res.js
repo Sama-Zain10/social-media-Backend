@@ -46,6 +46,6 @@ class ConflictException extends ApplicationError {
 }
 exports.ConflictException = ConflictException;
 const globalErrorHandler = (err, req, res, next) => {
-    return res.status(err.status || 500).json({ message: err.message || "Something went wrong", stack: err.stack });
+    return res.status(err.status || 500).json({ message: err.message || "Something went wrong", stack: err.stack, cause: err.cause });
 };
 exports.globalErrorHandler = globalErrorHandler;

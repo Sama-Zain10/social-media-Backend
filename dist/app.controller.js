@@ -25,6 +25,7 @@ const bootstrap = async (app) => {
     app.use((0, cors_1.default)(cors_utils_1.corsOptions));
     app.use((0, helmet_1.default)());
     app.use(limiter);
+    // DB connection
     await (0, connections_1.default)();
     app.get("/", (req, res) => {
         return res.send("Welcome from socail-media");
